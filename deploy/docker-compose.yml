@@ -7,7 +7,7 @@ services:
         hostname: mysql.fusionner
         restart: always
         volumes:
-            - ./data/mysql:/var/lib/mysql
+            - ../data/mysql:/var/lib/mysql
             - ./configuration/mysql:/etc/mysql/conf.d
             - ./init/docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d
         restart: always
