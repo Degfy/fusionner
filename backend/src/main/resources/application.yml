@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: fusionner
+
+
+  datasource:
+    url: jdbc:mysql://localhost:3306/fusionner?serverTimezone=Asia/Shanghai
+    username: fusionner
+    password: fusionner
+    hikari:
+      maximum-pool-size: 10

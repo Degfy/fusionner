@@ -10,7 +10,6 @@ services:
             - ../data/mysql:/var/lib/mysql
             - ./configuration/mysql:/etc/mysql/conf.d
             - ./init/docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d
-        restart: always
         environment:
             MYSQL_ROOT_PASSWORD: root
             MYSQL_DATABASE: fusionner
@@ -18,3 +17,19 @@ services:
             MYSQL_PASSWORD: fusionner
         ports:
             - 3306:3306
+    
+    backend:
+        build:
+            context: ../backend
+            dockerfile: Dockerfile
+        image: backend.fusionner
+        container_name: backend.fusionner
+        hostname: backend.fusionner
+        restart: always
+        volumes: 
+            - /home/portal/website/logs/:/home/portal/website/logs/
+        ports:
+            - "8080:8080"
+        environment:    
+            - JAVA_OPTS=-Xmx256M -Dspring.profiles.active=dev -Duser.timezone=GMT+08
+
