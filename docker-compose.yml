@@ -1,0 +1,20 @@
+version: "3"
+
+services:
+    mysql:
+        image: mysql:5.7
+        container_name: mysql.fusionner
+        hostname: mysql.fusionner
+        restart: always
+        volumes:
+            - ./data/mysql:/var/lib/mysql
+            - ./configuration/mysql:/etc/mysql/conf.d
+            - ./init/docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d
+        restart: always
+        environment:
+            MYSQL_ROOT_PASSWORD: root
+            MYSQL_DATABASE: fusionner
+            MYSQL_USER: fusionner
+            MYSQL_PASSWORD: fusionner
+        ports:
+            - 3306:3306
