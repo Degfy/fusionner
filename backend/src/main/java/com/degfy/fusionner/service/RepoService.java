@@ -7,6 +7,8 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 public class RepoService {
     private final RepoRepository repoRepository;
@@ -30,4 +32,16 @@ public class RepoService {
     }
 
 
+    public RepoBO getRepoById(Integer id) {
+        Optional<Repo> optionalRepo = repoRepository.findById(id);
+        if (optionalRepo.isPresent()) {
+            Repo repo = optionalRepo.get();
+            return new RepoBO()
+                    .setId(repo.getId())
+                    .setName(repo.getName())
+                    .setUrl(repo.getUrl())
+                    .setDescription(repo.getDescription());
+        }
+        return null;
+    }
 }

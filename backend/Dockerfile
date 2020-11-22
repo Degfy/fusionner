@@ -10,7 +10,6 @@ COPY gradlew ./
 RUN ./gradlew --refresh-dependencies
 COPY src ./src
 RUN ./gradlew bootJar
-RUN ls -al
 
 # 镜像
 FROM openjdk:8-alpine

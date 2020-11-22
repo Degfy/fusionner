@@ -1,6 +1,7 @@
-.DS_Store
-.idea
 .gradle
-.build
+.idea
+.git
+.gitignore
 build
+README.md
 src/main/resources/config
