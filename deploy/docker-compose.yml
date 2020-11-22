@@ -26,10 +26,10 @@ services:
         container_name: backend.fusionner
         hostname: backend.fusionner
         restart: always
-        volumes: 
-            - /home/portal/website/logs/:/home/portal/website/logs/
         ports:
             - "8080:8080"
         environment:    
-            - JAVA_OPTS=-Xmx256M -Dspring.profiles.active=dev -Duser.timezone=GMT+08
-
+            JAVA_OPTS: '-Xmx256M -Duser.timezone=GMT+08'
+            SPRING_DATASOURCE_URL: jdbc:mysql://mysql.fusionner/fusionner?serverTimezone=Asia/Shanghai
+            SPRING_DATASOURCE_USERNAME: fusionner
+            SPRING_DATASOURCE_PASSWORD: fusionner
