@@ -9,3 +9,6 @@ spring:
     password: fusionner
     hikari:
       maximum-pool-size: 10
+
+git:
+  local-root-path: ~/fusionner

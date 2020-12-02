@@ -1,0 +1,9 @@
+{
+  "properties": [
+    {
+      "name": "git.local-root-path",
+      "type": "java.lang.String",
+      "description": "Description for git.local-root-path."
+    }
+  ]
+}
